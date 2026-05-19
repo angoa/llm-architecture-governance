@@ -1,4 +1,4 @@
-```text
+
 DSL_NAME=LLM_ARCHITECTURE_GOVERNANCE_META_SDD
 DSL_VERSION=1.0.0.20260519
 DSL_STATUS=EXPERIMENTAL
@@ -65,4 +65,3 @@ QUALITY_GATE=semantic_validation:human_validated|governance_review:pending|parse
 RELEASE_STATE=ready_for_version_control_commit:true|review_required:true|auto_release:false
 
 CHANGE_GOV=CHANGE_ID:CHG-META-008|DATE:20260519|AUTHOR:governance_maintainer|TYPE:strictest_semantic_alignment|SEMANTIC_IMPACT:governance_metadata_only|BREAKING_CHANGE:false|VERSION_BUMP:not_required|PREVIOUS_HASH:not_generated|NEW_HASH:not_generated
-```
