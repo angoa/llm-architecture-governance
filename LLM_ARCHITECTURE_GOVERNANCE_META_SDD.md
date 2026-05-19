@@ -1,442 +1,302 @@
-```markdown
-# LLM Architecture Governance Meta SDD
+# LLM_ARCHITECTURE_GOVERNANCE_META_SDD
 
-## Canonical Governance Source
-
-The canonical Markdown document is the governance source of truth.
+This document is the canonical governance source for the AI-native semantic governance framework.
 
 The canonical document exists for:
+- governance
+- semantic definitions
+- architectural rationale
+- lifecycle control
+- operational projection generation
 
-* Architectural reasoning
-* Governance evolution
-* Human review
-* ADR traceability
-* Semantic rationale
-* Tradeoff documentation
-* Long-term maintainability
-* Organizational alignment
-
-The canonical document is intentionally:
-
-* Human-oriented
-* Reviewable
-* Explainable
-* Evolvable
-* Governance-centric
-* Architecture-focused
-
-The canonical document should prioritize:
-
-* Why decisions exist
-* Why constraints exist
-* Why aliases exist
-* Why forbidden patterns exist
-* Why semantic tradeoffs exist
-* Why alignment strategies exist
-
-The canonical document should NOT optimize for token minimization.
-
-The canonical document represents the semantic source of truth.
+Operational `.agdsl` artifacts MUST be generated from this canonical source.
 
 ---
 
-```text
-FILE=LLM_ARCHITECTURE_GOVERNANCE_META_SDD.md
-ROLE=canonical_governance_source
-AUDIENCE=humans|reviewers|architects|governance
-PURPOSE=architecture|rationale|ADRs|semantic_governance|evolution
-FORMAT=canonical_governance_markdown
-STATUS=experimental
-VERSION=1.0.0.20260519
-SOURCE_OF_TRUTH=true
-```
+## Canonical Governance Metadata
 
----
-
-## Operational Representation
-
-The operational `.agdsl` representation is derived from the canonical Markdown specification.
-
-The `.agdsl` representation exists for:
-
-* LLM alignment
-* AI agents
-* Context injection
-* Semantic governance
-* RAG pipelines
-* Multi-model orchestration
-* Alignment portability
-* Deterministic machine interpretation
-
-The operational representation should prioritize:
-
-* Semantic density
-* Constraint preservation
-* Deterministic structure
-* Low-token operationalization
-* Machine-oriented readability
-* Interpreter portability
-* Embedding compatibility
-
-The `.agdsl` representation should avoid:
-
-* Long prose
-* Architectural essays
-* Human onboarding explanations
-* Excessive rationale
-* Narrative descriptions
-
-The `.agdsl` file is an operational semantic artifact.
-
----
-
-```text
-FILE=LLM_ARCHITECTURE_GOVERNANCE_META_SDD.agdsl
-ROLE=operational_alignment_representation
-AUDIENCE=LLMs|agents|copilots|RAG|validators|assemblers
-PURPOSE=alignment|generation|constraint_preservation|semantic_governance
-FORMAT=line_oriented_semantic_specification
-SERIALIZATION=plain_text
-ENCODING=UTF8
-STATUS=experimental
-VERSION=1.0.0.20260519
-SEMANTIC_ROLE=compiled_semantic_projection
-SOURCE=.md
-```
-
----
-
-## META-SDD Operational Specification
-
-```text
-DSL_NAME=META_AGDSL_GENERATOR
+```agdsl
+DSL_NAME=LLM_ARCHITECTURE_GOVERNANCE_META_SDD
 DSL_VERSION=1.0.0.20260519
 DSL_STATUS=EXPERIMENTAL
-DOMAIN=meta_dsl_generation
-SEMANTIC_ROLE=compiled_semantic_projection
-SOURCE=LLM_ARCHITECTURE_GOVERNANCE_META_SDD.md
+
+DOMAIN=meta_dsl_governance
+
+SEMANTIC_ROLE=canonical_governance_source
+
+SOURCE=self
+SOURCE_OF_TRUTH=true
 
 SERIALIZATION=plain_text
 ENCODING=UTF8
-FORMAT=line_oriented_semantic_specification
-PORTABILITY=provider_agnostic|runtime_agnostic|vendor_neutral
 
+FORMAT=hybrid_governance_semantic_specification
+
+PORTABILITY=
+provider_agnostic|
+runtime_agnostic|
+vendor_neutral
+Operational Semantic Projection
+OPERATIONAL_ROLE=compiled_semantic_projection
+
+SERIALIZATION_MODEL=
+separator_style=pipe|
+assignment_style=equals_sign|
+document_model=section_grouped|
+line_model=line_based|
+key_value_structured=true|
+human_reviewable=true|
+parser_compatible=false|
+parser_support_status=planned
+
+OPERATIONAL_ENCODING=
+plain_text|
+UTF8|
+key_value|
+line_based|
+semantic_projection
+Grammar
+GRAMMAR=
+section=KEY=VALUE|
+list=VALUE1|VALUE2|
+assignment=single_equals|
+separator=vertical_bar|
+line_delimiter=newline|
+block_delimiter=section_marker
+
+SECTION_MARKER=#
+COMMENT_MARKER=//
+Goal
 GOAL=
 generate_domain_specific_agdsl|
 preserve_semantic_invariants|
 enforce_governance_constraints|
-enable_deterministic_alignment
-
-STACK=
-provider_agnostic|
-plain_text|
-UTF8|
-pipe_separated|
-key_value
-
+enable_deterministic_alignment|
+maintain_separation_of_layers|
+prevent_domain_leak_into_meta
+Foundation Model
+FOUNDATION_MODEL=
+semantic_governance|
+structured_constraints|
+plain_text_serialization|
+semantic_projection|
+constraint_preservation
+Architecture
 ARCHITECTURE=
-compilation_pipeline|
+compilation_pipeline_planned|
 semantic_extraction|
 constraint_preservation|
-governance_first
-
+governance_first|
+layer_separation
+Layers
+LAYERS=
+L1=META_MODEL:define_semantics_constraints_grammar|
+L2=AGDSL:operational_semantic_projection|
+L3=DOMAIN_DSL:concrete_dsl_for_specific_domain
+Primitives
+PRIMITIVES=
+keyword|
+identifier|
+separator|
+literal|
+comment|
+assignment_operator
+Semantic Constructs
+SEMANTIC_CONSTRUCTS=
+constraint|
+rule|
+validation|
+alias|
+governance_boundary|
+semantic_projection
+Separators
+SEPARATORS=
+PIPE=vertical_bar|
+PIPE_ALIAS=single_pipe_character|
+ASSIGNMENT=equals_sign|
+ASSIGNMENT_ALIAS=single_equals_character
+Reserved Keywords
+RESERVED_KEYWORDS=
+DOMAIN|
+VERSION|
+STATUS|
+GOAL|
+FOUNDATION_MODEL|
+ARCHITECTURE|
+RULES|
+FORBIDDEN|
+STYLE|
+STRATEGY|
+RISK_MODEL|
+OBSERVABILITY|
+METRICS|
+VALIDATION|
+OUTPUT|
+INSTRUCTION|
+LAYERS|
+GRAMMAR|
+PRIMITIVES|
+SEMANTIC_CONSTRUCTS|
+SEPARATORS|
+QUALITY_GATE|
+RELEASE_STATE
+Required Sections
+REQUIRED_SECTIONS=
+HEADER_SECTION|
+DOMAIN_SECTION|
+VERSION_SECTION|
+STATUS_SECTION|
+GOAL_SECTION|
+ARCHITECTURE_SECTION|
+RULES_SECTION|
+FORBIDDEN_SECTION|
+OUTPUT_SECTION|
+VALIDATION_SECTION|
+INSTRUCTION_SECTION
+Optional Sections
+OPTIONAL_SECTIONS=
+STYLE_SECTION|
+STRATEGY_SECTION|
+RISK_MODEL_SECTION|
+OBSERVABILITY_SECTION|
+METRICS_SECTION|
+SEMANTIC_SIGNATURE_SECTION|
+CHANGE_GOV_SECTION
+Rules
 RULES=
-semantic_preservation_over_optimization|
-explicit_constraints_only|
-stable_aliases_before_compression|
-governance_before_token_efficiency|
-deterministic_output
-
+rule_1=preserve_semantic_equivalence_across_all_layers|
+rule_2=explicit_constraints_only_no_implicit_assumptions|
+rule_3=aliases_must_be_registered_before_first_use|
+rule_4=governance_priority_over_token_efficiency|
+rule_5=deterministic_output_mandatory_for_same_input|
+rule_6=domain_agnostic_at_meta_level_no_domain_leak|
+rule_7=line_based_parsing_without_ambiguity|
+rule_8=separators_must_be_consistent_across_sections|
+rule_9=required_sections_cannot_be_empty|
+rule_10=semantic_versioning_required
+Forbidden
 FORBIDDEN=
-opaque_hashes|
-vendor_specific_tokens|
-hidden_constraints|
-ambiguous_aliases|
-runtime_secrets|
-unbounded_prose
-
+domain_specific_entity_names_in_meta|
+vendor_specific_tokens_or_formats|
+opaque_hashes_without_declared_input|
+hidden_constraints_not_in_rules_section|
+unregistered_aliases_outside_registry|
+runtime_secrets_or_credentials|
+unbounded_prose|
+thread_local_state_in_compilation|
+non_deterministic_transformations|
+circular_dependencies_between_sections|
+incomplete_validation_rules|
+shell_syntax_leakage|
+EOF_tokens|
+heredoc_tokens
+Style
 STYLE=
 compact|
-key_value|
-pipe_separated|
+key_value_pairs|
+pipe_separated_lists|
 machine_oriented|
 human_reviewable|
-embedding_friendly
-
+embedding_friendly|
+consistent_indentation
+Strategy
 STRATEGY=
 semantic_compression_first|
 interpretability_mandatory|
-portability_over_optimization
-
+portability_over_optimization|
+deterministic_over_flexible|
+explicit_over_implicit
+Risk Model
 RISK_MODEL=
 semantic_drift:critical|
+ontology_drift:critical|
+layer_confusion:critical|
 alias_collision:high|
 extraction_error:medium|
-governance_leak:critical
-
+governance_leak:critical|
+layer_violation:critical|
+non_deterministic_output:high
+Observability
 OBSERVABILITY=
-semantic_equivalence_verifiable|
-compilation_traceable|
+semantic_equivalence_verifiable_manually|
+compilation_traceable_step_by_step|
 alias_registry_auditable|
-output_deterministic
-
+output_deterministic_for_same_input|
+layer_separation_inspectable|
+validation_rules_applied_loggable
+Metrics
 METRICS=
 semantic_density:high|
-token_efficiency:optimized|
+token_efficiency:optimized_within_governance|
 interpretability:maintained|
-portability:provider_agnostic
-
+portability:provider_agnostic|
+layer_purity:no_domain_leak
+Validation
 VALIDATION=
-required_sections_present|
-aliases_in_registry|
-no_opaque_tokens|
-semantic_equivalence_enforced
-
+required_sections_present_and_non_empty|
+aliases_in_registry_before_usage|
+no_domain_specific_tokens_in_meta|
+no_opaque_tokens_or_hashes|
+semantic_equivalence_enforced_across_versions|
+separators_consistent|
+keywords_reserved_not_used_as_identifiers|
+line_based_structure_preserved|
+validation_tool_planned|
+ci_enforcement_planned|
+no_shell_syntax_leakage
+Output
 OUTPUT=
-domain_agdsl|
-governance_artifact|
-alignment_context|
-deterministic_specification
-
+when_AGDSL_received->validate_against_META|
+then_generate_DOMAIN_DSL_from_requirements|
+then_output_validation_summary|
+then_output_generated_domain_dsl|
+maintain_deterministic_ordering|
+preserve_all_constraints_from_input
+Instruction
 INSTRUCTION=
-when_receiving_domain_requirements_validate_against_META|
-preserve_all_constraints_and_semantics|
+validate_domain_requirements_against_META|
+preserve_constraints_and_semantics|
 use_registered_aliases_only|
 never_introduce_unregistered_tokens|
-output_agdsl_first_then_validation_summary|
-maintain_provider_agnosticism
-
-CHANGE_GOV=
-CHANGE_ID:CHG-001|
-DATE:20260519|
-AUTHOR:angoa|
-TYPE:initial_derivation|
-RATIONALE:compiled_from_canonical_META_SDD|
-SEMANTIC_IMPACT:high|
-BREAKING_CHANGE:false
-```
-
----
-
-## Semantic Equivalence
-
-```text
+never_leak_domain_specific_names_into_META|
+maintain_provider_agnosticism|
+verify_required_sections_before_processing
+Semantic Equivalence
 SEMANTIC_EQUIVALENCE=
-required=true
-scope=full_specification
-check_sections=all
-check_aliases=all
-check_constraints=all
-check_forbidden=all
-ignore=whitespace|comments|formatting|metadata
-enforced=ci_pipeline
-validation_tool=equivalence_validator
-failure_action=block_merge
-```
-
----
-
-## Semantic Compilation
-
-```text
+required=true|
+scope=full_specification|
+check_sections=all|
+check_aliases=all|
+check_constraints=all|
+check_forbidden=all|
+ignore=whitespace|comments|formatting|metadata|
+enforcement=manual_review_until_ci_exists|
+validation_tool=planned
+Semantic Compilation
 SEMANTIC_COMPILATION=
 deterministic|
 auditable|
 reproducible|
-semantic_preserving|
-lossless|
-reversible
-
-COMPILATION_PROPERTIES=
-input:canonical_markdown|
-output:operational_agdsl|
-method:extraction|
-verification:equivalence_check|
-idempotent:true
-```
-
----
-
-## Canonical vs Operational Separation
-
-The canonical Markdown specification and the operational `.agdsl` representation must remain semantically equivalent while serving different purposes.
-
-Relationship model:
-
-```text
-Canonical Markdown
-    = semantic source of truth
-
-Operational AGDSL
-    = compiled semantic projection
-```
-
-The `.md` and `.agdsl` files should:
-
-* Preserve semantic consistency
-* Preserve governance intent
-* Preserve alignment invariants
-* Preserve constraint semantics
-* Preserve semantic aliases
-
-The `.md` and `.agdsl` files should NOT:
-
-* Be byte-identical
-* Be structurally identical
-* Share identical verbosity levels
-* Optimize for the same audience
-
-The Markdown representation prioritizes:
-
-* Human cognition
-* Governance review
-* Architectural explainability
-* ADR traceability
-* Evolutionary reasoning
-
-The `.agdsl` representation prioritizes:
-
-* Machine interpretation
-* Alignment injection
-* Token efficiency
-* Operational portability
-* Deterministic structure
-
-This separation is intentional and foundational to the META-SDD architecture.
-
----
-
-## Operational Architecture
-
-```text
-META_SDD.md (SOURCE_OF_TRUTH=true)
-    ↓ compile/extract/compress (deterministic, auditable, reproducible)
-META_SDD.agdsl (SEMANTIC_ROLE=compiled_semantic_projection)
-    ↓ validate (SEMANTIC_EQUIVALENCE enforced)
-    ↓ generate
-Domain_DSLs
-    ↓ inject
-Operational_AI_Contexts
-```
-
----
-
-## Status Badges
-
-```text
-STATUS_BADGES=
-canonical:experimental|
-operational:experimental|
-compilation:automated|
-validation:CI_enforced|
-semantic_version:1.0.0|
-governance:active|
-equivalence:enforced|
-source_of_truth:true
-```
-
----
-
-## Semantic Stability
-
-Semantic aliases should remain stable across DSL versions whenever possible.
-
-Examples:
-
-```text
-OBS1st
-SQL1st
-NOORM
-STRICT_GOV
-CF
-VS
-HEX
-```
-
-Semantic stability improves:
-
-* Long-term governance
-* Cross-model portability
-* Embedding consistency
-* Alignment determinism
-* DSL maintainability
-* AI interoperability
-
-Breaking semantic changes should require:
-
-* ADR review
-* Semantic migration rationale
-* Governance approval
-* Version increment
-
----
-
-## Versioning Policy
-
-```text
-VERSIONING=
-scheme:semantic
-major:breaking_changes|removed_sections|incompatible_semantics
-minor:new_sections|new_aliases|non_breaking_extensions
-patch:fixes|clarifications|typos|formatting
-
-BREAKING_CHANGE_REQUIRES=
-ADR_documentation|
-governance_approval|
-migration_guide|
-deprecation_notice
-```
-
----
-
-## Future Evolution
-
-The META-SDD is intentionally designed to evolve incrementally.
-
-Expected evolution path:
-
-```text
-P1 = Human-readable governance DSLs
-P2 = Structured operational AGDSLs (CURRENT - experimental)
-P3 = Schema validation
-P4 = Semantic registries
-P5 = DSL composition systems
-P6 = AI governance validators
-P7 = Executable governance policies
-P8 = AI-native architecture governance platforms
-```
-
-The META-SDD is intentionally:
-
-* Plain-text-first
-* Provider-agnostic
-* Runtime-neutral
-* Governance-oriented
-* AI-native
-* Specification-driven
-
----
-
-## Repository Structure
-
-```text
-llm-architecture-governance/
- ├── meta/
- │    ├── LLM_ARCHITECTURE_GOVERNANCE_META_SDD.md
- │    └── LLM_ARCHITECTURE_GOVERNANCE_META_SDD.agdsl
- │
- ├── domains/
- │    ├── sipres-legacy-refactor.agdsl
- │    └── git-dual-profile.agdsl
- │
- ├── adrs/
- ├── schemas/
- ├── examples/
- ├── tests/
- ├── tools/
- │    ├── extract_agdsl.py
- │    ├── validate_equivalence.py
- │    └── Makefile
- │
- └── assemblers/
-```
+semantic_preserving
+Quality Gate
+QUALITY_GATE=
+semantic_validation=human_validated|
+governance_review=pending|
+parser_validation=planned|
+equivalence_review=manual_review_pending
+Release State
+RELEASE_STATE=
+ready_for_version_control_commit=true|
+review_required=true|
+auto_release=false
+Change Governance
+CHANGE_GOV=
+CHANGE_ID=CHG-META-008|
+DATE=20260519|
+AUTHOR=governance_maintainer|
+TYPE=strictest_semantic_alignment|
+SEMANTIC_IMPACT=governance_metadata_only|
+BREAKING_CHANGE=false|
+VERSION_BUMP=not_required|
+PREVIOUS_HASH=not_generated|
+NEW_HASH=not_generatd
