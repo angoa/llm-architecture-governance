@@ -15,7 +15,10 @@ Operational `.agdsl` artifacts MUST be generated from this canonical source.
 
 ## Canonical Governance Metadata
 
+
+
 ```agdsl
+// Este DSL_NAME identifica el modelo de gobernanza canónico (L1)
 DSL_NAME=LLM_ARCHITECTURE_GOVERNANCE_META_SDD
 DSL_VERSION=1.0.0.20260519
 SCHEMA_VERSION=1

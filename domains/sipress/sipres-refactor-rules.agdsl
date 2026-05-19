@@ -1,13 +1,12 @@
-# SIPRES_R1
-V=1.0.0|S=EXP|D=sp
+V=1.0.4.20260519|S=EXP|D=sp
 
-G=pf|mgr|bpl|lgs|bwc|KIS|SOL|CLN|NSM|J8|FLU|FP
+G=pf|mgr|bpl|lgs|bwc|KIS|SOL|CLN|NSM|J8|FLU|FP|O1|PERF|MATAS
 
 S=8|19|W14|JDBC
 
-R=pf|try|LB|SE|rid|bwc|KIS|SRP|OCP|LSP|ISP|DIP|CLE|CLU|CLA|CLF|NBP|NSM|L8|S8|O8|FCH|FPP|FPI
+R=pf|try|LB|SE|rid|bwc|KIS|SRP|OCP|LSP|ISP|DIP|CLE|CLU|CLA|CLF|NBP|NSM|L8|S8|O8|FCH|FPP|FPI|O1|ON|PERF|CACHE|POOL|BATCH|CONN|TX|RETRY|TRW|CLOSE|FINAL
 
-F=OCS|SOT|MUT|TL|FCM|VNL|MGS|SPR|BRK|BPL|SML|J9|RAW|MT|CC
+F=OCS|SOT|MUT|TL|FCM|VNL|MGS|SPR|BRK|BPL|SML|J9|RAW|MT|CC|N2|EXP|LINES|NEST|REC|SYNC|LEAK|STUCK|ZOMBIE|MATAS
 
 ST=EM|EI|EL|NA|NI|NS
 
@@ -19,16 +18,76 @@ L=OK:FI,SE,RO|ER:SE,SE,ER,SQ|RID
 
 TM=DFT:SCH
 
-C=LN:80|BR:75|MTN:0|SP:100|ER:100|TM:100
+C=LN:80|BR:75|MTN:0|SP:100|ER:100|TM:100|BIGO:O1|ON:On|OPER:min
 
-T=J4|MK|INT|EXC|TM|REG|REP
+T=J4|MK|INT|EXC|TM|REG|REP|PERF|BENCH
 
 SE=SI|PS|NCR|INV
 
 DP=PC|CI|PRC|BB
 
-Q=SN|DP:3|CC:10|DEPS
+Q=SN|DP:3|CC:10|DEPS|PERF:95
 
 SM=MJ|MN|FX|PR
 
-I=PF|TRY|LB|SE|NRM|TM|MAT|RID|NN|RTH|NMG|NSP|JVD|BWC|CV80|UNT|NRG|SI|CI|SN|SMV|KIS|SOL|CLN|NBP|NSM|J8|FLU|FP|NTR|MT|CC
+BIGO=
+target:O1_On|
+avoid:On2_On3|
+prefer:OlogN|
+max_iterations:1000|
+early_exit:true
+
+PERF=
+throughput:high|
+latency:low|
+connection_pool:required|
+statement_cache:enabled|
+batch_size:1000|
+fetch_size:100|
+timeout:30s|
+leak_detection:on
+
+DB=
+isolation:READ_COMMITTED|
+auto_commit:false|
+rollback:on_runtime_exception|
+retry_deadlock:3|
+retry_delay:100ms|
+max_conn:20|
+idle_timeout:600s|
+leak_threshold:30s|
+pool:validate_on_borrow|
+abandoned_connection:true|
+remove_abandoned:true|
+remove_abandoned_timeout:60s|
+log_abandoned:true|
+kill_zombie_session:required
+
+CONC=
+thread_pool:workmanager|
+max_threads:50|
+min_threads:10|
+queue_depth:100|
+reject:CallerRuns|
+stuck_timeout:600s|
+monitor:jmx|
+session_cleanup_on_stuck:true
+
+ERR=
+retry:exponential_backoff|
+max_retries:3|
+circuit_breaker:on_timeout|
+fallback:stale_cache|
+bulkhead:per_sp|
+timeout:30s
+
+MATAS=
+prevention:try_with_resources_mandatory|
+detection:leak_threshold_30s|
+action:log_abandoned_then_close|
+escalation:kill_session_if_leaked|
+monitoring:query_v$session|
+alert:when_connections_starved|
+remediation:auto_kill_zombie
+
+I=pf|try|LB|SE|norm|tmo|mat|rid|nn|reth|nmg|nsp|jvd|bwc|cv80|unt|nrg|si|ci|sn|smv|KIS|SOL|CLN|nbp|nsm|j8|flu|fp|ntr|mt|cc|O1|ON|PERF|CACHE|POOL|BATCH|BENCH|LEAK|TIMEOUT|FETCH|BIGO_CHK|TX|RETRY|CONN|ISOLATION|WORKMANAGER|STUCK|CIRCUIT|BULKHEAD|TRW|CLOSE|FINAL|ZOMBIE|MATAS|KILL_SESSION|MATAS_PREV|MATAS_DET|MATAS_ESC
