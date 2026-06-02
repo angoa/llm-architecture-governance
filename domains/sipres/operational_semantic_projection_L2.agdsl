@@ -1,0 +1,294 @@
+# ============================================================================
+# L2 - AGDSL: Operational Semantic Projection
+# ============================================================================
+# This artifact is the canonical L2 projection from L1 META_MODEL.
+# It defines domain-agnostic operational semantics for software refactoring,
+# connection management, resilience patterns, and code quality governance.
+# All L3 DOMAIN_DSL artifacts MUST import and instantiate these constructs.
+# ============================================================================
+
+DSL_NAME=AGDSL_OPERATIONAL_SEMANTIC_PROJECTION
+DSL_VERSION=1.0.0.20260602
+SCHEMA_VERSION=1
+DSL_STATUS=EXPERIMENTAL
+
+DOMAIN=operational_semantic_projection
+SEMANTIC_ROLE=operational_semantic_projection
+SOURCE=LLM_ARCHITECTURE_GOVERNANCE_META_SDD.agdsl
+SOURCE_OF_TRUTH=false
+
+SERIALIZATION=plain_text
+ENCODING=UTF8
+FORMAT=line_based_key_value_semantic_specification
+PORTABILITY=provider_agnostic|runtime_agnostic|vendor_neutral
+
+# ============================================================================
+# GRAMMAR (inherited from L1)
+# ============================================================================
+GRAMMAR=section=KEY_EQUALS_VALUE|list=PIPE_SEPARATED_VALUES|assignment=single_equals|separator=vertical_bar|line_delimiter=newline|block_delimiter=section_marker
+SECTION_MARKER=#
+COMMENT_MARKER=//
+
+# ============================================================================
+# LAYER DECLARATION
+# ============================================================================
+LAYERS=
+  L1:META_MODEL:define_semantics_constraints_grammar|
+  L2:AGDSL:operational_semantic_projection|
+  L3:DOMAIN_DSL:concrete_dsl_for_specific_domain
+
+# ============================================================================
+# GOAL - L2 specific
+# ============================================================================
+GOAL=
+  provide_reusable_operational_semantics|
+  remain_domain_agnostic|
+  enable_deterministic_L3_generation|
+  enforce_resilience_patterns|
+  standardize_resource_management|
+  prevent_domain_leak_into_operational_layer
+
+# ============================================================================
+# FOUNDATION MODEL - Operational projection
+# ============================================================================
+FOUNDATION_MODEL=
+  resource_lifecycle_governance|
+  resilience_patterns|
+  connection_pool_abstraction|
+  circuit_breaker_semantics|
+  timeout_management|
+  leak_detection_projection|
+  try_with_resources_mandate|
+  deterministic_refactoring_rules
+
+# ============================================================================
+# ARCHITECTURE - L2 compilation pipeline
+# ============================================================================
+ARCHITECTURE=
+  semantic_extraction_from_L1|
+  constraint_preservation|
+  domain_agnostic_projection|
+  L3_generator_input|
+  governance_first|
+  layer_separation_enforced
+
+# ============================================================================
+# CORE OPERATIONAL CONSTRUCTS (domain-agnostic)
+# ============================================================================
+
+## Resource Management
+RESOURCE=
+  CONNECTION:managed_lifecycle|
+  STATEMENT:auto_closable|
+  RESULTSET:auto_closable|
+  SESSION:request_scoped|
+  TRANSACTION:bounded_context
+
+## Resilience Patterns
+RESILIENCE=
+  RETRY:exponential_backoff|
+  CIRCUIT_BREAKER:three_state_model|
+  BULKHEAD:per_operation_isolation|
+  TIMEOUT:per_statement_or_transaction|
+  FALLBACK:stale_cache_or_default|
+  BACKPRESSURE:queue_depth_controlled
+
+## Connection Pool (abstraction)
+POOL_ABSTRACTION=
+  ACQUIRE:blocking_with_timeout|
+  RELEASE:must_explicit_or_auto|
+  VALIDATE:on_borrow_mandatory|
+  LEAK_DETECTION:threshold_based|
+  ABANDONED_RECLAIM:timeout_triggered|
+  MONITORING:jmx_or_equivalent
+
+## Code Quality (refactoring rules)
+QUALITY=
+  TRY_WITH_RESOURCES:mandatory_for_autoclosable|
+  FINALLY_BLOCK:forbidden_for_resource_cleanup|
+  NULL_CHECK:before_dereference|
+  EXCEPTION_HANDLING:no_swallow|
+  LAMBDA:prefer_over_anonymous_inner|
+  STREAM:close_requires_try_with_resources|
+
+## Transaction Semantics
+TRANSACTION=
+  BOUNDARY:method_or_request_scoped|
+  ISOLATION:read_committed_default|
+  AUTO_COMMIT:false_mandatory|
+  ROLLBACK:on_unchecked_exception|
+  RETRY_DEADLOCK:max_3_attempts
+
+## Performance (domain-agnostic constraints)
+PERFORMANCE=
+  CONNECTION_POOL:required|
+  STATEMENT_CACHE:size_10_to_50|
+  BATCH_SIZE:1000_recommended|
+  FETCH_SIZE:100_default|
+  TIMEOUT_SECONDS:30_operation_default|
+  LEAK_THRESHOLD_SECONDS:60
+
+# ============================================================================
+# RULES (operational projection from L1)
+# ============================================================================
+RULES=
+  rule_1:all_resources_must_implement_autocloseable|
+  rule_2:no_explicit_finally_for_resource_cleanup|
+  rule_3:circuit_breaker_must_implement_half_open_probe|
+  rule_4:timeout_must_be_set_on_all_blocking_operations|
+  rule_5:connection_validation_on_borrow_mandatory|
+  rule_6:leak_detection_threshold_must_be_defined|
+  rule_7:retry_policy_must_include_max_attempts_and_backoff|
+  rule_8:bulkhead_must_prevent_cascade_failure|
+  rule_9:transaction_boundary_must_be_explicit|
+  rule_10:no_operation_may_hold_connection_during_io_or_computation|
+
+# ============================================================================
+# FORBIDDEN (operational patterns)
+# ============================================================================
+FORBIDDEN=
+  connection_held_across_loop_iterations|
+  resultset_without_try_with_resources|
+  statement_without_timeout|
+  circuit_breaker_without_half_open_probe|
+  retry_without_max_attempts_limit|
+  bulkhead_without_queue_capacity_definition|
+  thread_local_without_cleanup_in_finally|
+  jndi_lookup_on_every_operation|
+  hardcoded_connection_strings|
+  vendor_specific_cast_without_portability_wrapper|
+
+# ============================================================================
+# ALIAS REGISTRY (operational aliases, domain-agnostic)
+# ============================================================================
+ALIAS_REGISTRY=
+  TRW:try_with_resources_mandatory|
+  NOCLOSE:no_manual_close_in_finally|
+  TO:timeout_required|
+  CB:circuit_breaker_with_half_open|
+  BH:bulkhead_per_operation|
+  RETRYEXP:exponential_backoff_retry|
+  LKDETECT:leak_detection_enabled|
+  POOLVAL:validate_on_borrow|
+  TXBOUND:explicit_transaction_boundary|
+  FETCHSZ:fetch_size_100|
+  BATCHSZ:batch_size_1000|
+  CPOOL:connection_pool_required|
+  STMTCACHE:statement_cache_enabled|
+  NOSWALLOW:no_exception_swallowing|
+  NULCHK:null_check_before_dereference|
+
+# ============================================================================
+# IMPORT MODEL (L2 to L3)
+# ============================================================================
+IMPORT_MODEL=
+  allowed:true|
+  import_syntax:IMPORT=path_to_agdsl|
+  circular_imports:false|
+  merge_strategy:deterministic_union|
+  conflict_resolution:L2_definition_overrides_L3_instantiation|
+  import_order:top_down|
+  required_for_L3:true|
+  L3_MUST_SPECIFY:domain_specific_instantiations_of_aliases|
+
+# ============================================================================
+# VALIDATION (L2 conformance)
+# ============================================================================
+VALIDATION=
+  required_sections_present_and_non_empty|
+  no_domain_specific_tokens_in_L2|
+  all_aliases_registered_before_usage|
+  resilience_patterns_complete|
+  resource_management_rules_enforceable|
+  layer_separation_inspectable|
+  no_vendor_specific_tokens|
+  deterministic_projection_verifiable|
+
+# ============================================================================
+# OUTPUT (L2 → L3 generation contract)
+# ============================================================================
+OUTPUT=
+  when_L2_imported_by_L3->validate_L3_against_L2|
+  then_check_all_required_aliases_instantiated|
+  then_verify_no_domain_leak_from_L3_to_L2|
+  then_enforce_governance_constraints_from_L1|
+  then_generate_refactoring_plan|
+  output_validation_summary|
+  maintain_deterministic_ordering|
+  preserve_all_constraints_from_L1_and_L2|
+
+# ============================================================================
+# INSTRUCTION (for L3 authors)
+# ============================================================================
+INSTRUCTION=
+  import_this_L2_as_base_for_all_L3_domain_dsl|
+  instantiate_aliases_with_domain_specific_values|
+  never_redefine_L2_constructs_in_L3|
+  never_introduce_unregistered_tokens|
+  maintain_provider_agnosticism_in_L3_rules|
+  verify_L3_compliance_against_L2_before_commit|
+  use_IMPORT_statement_at_top_of_L3_file|
+  preserve_semantic_equivalence_with_L2_projection|
+
+# ============================================================================
+# SEMANTIC EQUIVALENCE (L1 → L2)
+# ============================================================================
+SEMANTIC_EQUIVALENCE=
+  required:true|
+  scope:full_specification|
+  source:L1_META_MODEL|
+  target:L2_AGDSL_PROJECTION|
+  check_sections:all|
+  check_aliases:all|
+  check_constraints:all|
+  check_forbidden:all|
+  ignore:whitespace_comments_formatting|
+  enforcement:semantic_projection_verification|
+  equivalence_type:operational_interpretation_preserving|
+
+# ============================================================================
+# QUALITY GATE (L2 readiness)
+# ============================================================================
+QUALITY_GATE=
+  semantic_validation:passed|
+  governance_review:required_for_L3_import|
+  parser_validation:planned|
+  equivalence_with_L1:verified_manually|
+  ready_for_L3_import:true|
+
+# ============================================================================
+# RELEASE STATE
+# ============================================================================
+RELEASE_STATE=
+  ready_for_version_control_commit:true|
+  review_required:false|
+  auto_release:false|
+  L3_adoption_required:true|
+
+# ============================================================================
+# ROADMAP (L2 evolution)
+# ============================================================================
+ROADMAP=
+  P1:operational_semantic_projection_definition|
+  P2:alias_registry_completion|
+  P3:import_resolver_implementation|
+  P4:semantic_equivalence_validator_for_L2_L3|
+  P5:ci_quality_gate_for_L3_imports|
+  P6:automated_L3_scaffolding_from_L2|
+  P7:runtime_governance_agent_integration|
+
+# ============================================================================
+# CHANGE GOVERNANCE
+# ============================================================================
+CHANGE_GOV=
+  CHANGE_ID:CHG-L2-001|
+  DATE:20260602|
+  AUTHOR:governance_engineer|
+  TYPE:initial_L2_projection_creation|
+  SEMANTIC_IMPACT:foundational|
+  BREAKING_CHANGE:false|
+  VERSION_BUMP:1.0.0|
+  PREVIOUS_HASH:none|
+  NEW_HASH:not_generated_yet|
+  L1_COMPLIANT:true|
+  AWAITING_L3_ADOPTION:true|
